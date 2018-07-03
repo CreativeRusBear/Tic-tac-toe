@@ -1,4 +1,21 @@
-var Player=prompt('Введите ваше имя','Player');
+var Player=(async function getName () {
+const {value: name} = await swal({
+  title: 'Введите ваше имя',
+  input: 'text',
+  inputPlaceholder: 'Игрок',
+  showCancelButton: false,
+  inputValidator: (value) => {
+    return !value && 'Ошибка! Введите ваше имя и повторите попытку!'
+  }
+})
+
+if (name) {
+	Player=name;
+  swal({type: 'success', title: 'Спасибо, ' + name})
+}
+
+})()
+
 var writeO;
 for (var i=0; i<9; i++) {
 	document.getElementById('mainBlock').innerHTML+='<div class="block" onclick="rectangleSquare('+i+')"></div>';	
@@ -16,7 +33,7 @@ function rectangleSquare (value){
 			console.log(allElementsInMainBlock);
 			console.log(divElements);
 			if (checkWinner()==true){
-				alert('Ты выиграл! Поздравляю!');
+					swal('Победа!',Player+' ,ты выиграл! Поздравляю!','success');
 			}else{
 				/*checkNobody();*/
 				computerSolution();
@@ -57,7 +74,7 @@ function checkNobody() {
 		}
 	}
 	if (checkForADraw==false){
-		alert('Ничья');
+			swal('Ничья!',Player+', ты сыграл в ничью, неплохо','warning');
 	}
 }
 
@@ -100,7 +117,7 @@ function computerSolution() {
 		computerWrite(writeO);
 		allElementsInMainBlock[writeO]=2;
 		if (checkWinner()==true){
-			alert('Победил компьютер!');
+				swal('Победил компьютер!',Player+', попробуй ещё раз, у тебя обязательно получится','error');
 		}
 	}
 //}

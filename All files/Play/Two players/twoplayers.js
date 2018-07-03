@@ -2,9 +2,43 @@ for (var i=0; i<9; i++) {
  	document.getElementById('mainBlock').innerHTML+='<div class="block"></div>';
 }
 
-var firstPlayer=prompt("Введите имя первого ирока","1-ый игрок" );
-var secondPlayer=prompt("Введите имя второго игрока", "2-ой игрок");
 
+var firstPlayer,secondPlayer;
+firstPlayer=(async function getName () {
+const {value: name} = await swal({
+  title: 'Введите имя первого игрока',
+  input: 'text',
+  inputPlaceholder: 'Первый игрок',
+  showCancelButton: false,
+  inputValidator: (value) => {
+    return !value && 'Ошибка! Введите имя первого игрока и повторите попытку!'
+  }
+})
+
+if (name) {
+	firstPlayer=name;
+    secondPlayer=(async function getName () {
+	const {value: name} = await swal({
+  	title: 'Введите имя второго игрока',
+  	input: 'text',
+  	inputPlaceholder: 'Второй игрок',
+  	showCancelButton: false,
+  	inputValidator: (value) => {
+    return !value && 'Ошибка! Введите имя второго игрока и повторите попытку!'
+  }
+})
+
+if (name) {
+	secondPlayer=name;
+}
+})()
+}
+})()
+
+
+
+console.log(firstPlayer);
+console.log(secondPlayer);
 var turn=0;
 
 document.getElementById('mainBlock').onclick = function (event){
@@ -29,7 +63,8 @@ document.getElementById('mainBlock').onclick = function (event){
  			(allElementsInMainBlock[2].innerHTML=='X' && allElementsInMainBlock[5].innerHTML=='X' && allElementsInMainBlock[8].innerHTML=='X') ||
  			(allElementsInMainBlock[0].innerHTML=='X' && allElementsInMainBlock[4].innerHTML=='X' && allElementsInMainBlock[8].innerHTML=='X') ||
  			(allElementsInMainBlock[2].innerHTML=='X' && allElementsInMainBlock[4].innerHTML=='X' && allElementsInMainBlock[6].innerHTML=='X')){
- 			alert('В этой борьбе победил '+firstPlayer+'. Поздравляю!');
+ 			// alert('В этой борьбе победил '+firstPlayer+'. Поздравляю!');
+ 			swal('Победа!','В этой борьбе победил '+firstPlayer+'! Поздравляю!','success');
  		}else if ((allElementsInMainBlock[0].innerHTML=='O' && allElementsInMainBlock[1].innerHTML=='O' && allElementsInMainBlock[2].innerHTML=='O') || 
  				  (allElementsInMainBlock[3].innerHTML=='O' && allElementsInMainBlock[4].innerHTML=='O' && allElementsInMainBlock[5].innerHTML=='O') || 
  				  (allElementsInMainBlock[6].innerHTML=='O' && allElementsInMainBlock[7].innerHTML=='O' && allElementsInMainBlock[8].innerHTML=='O') ||
@@ -38,12 +73,13 @@ document.getElementById('mainBlock').onclick = function (event){
  			      (allElementsInMainBlock[2].innerHTML=='O' && allElementsInMainBlock[5].innerHTML=='O' && allElementsInMainBlock[8].innerHTML=='O') ||
  			      (allElementsInMainBlock[0].innerHTML=='O' && allElementsInMainBlock[4].innerHTML=='O' && allElementsInMainBlock[8].innerHTML=='O') ||
  			      (allElementsInMainBlock[2].innerHTML=='O' && allElementsInMainBlock[4].innerHTML=='O' && allElementsInMainBlock[6].innerHTML=='O')){
- 			alert('В этой борьбе победил '+secondPlayer+'. Поздравляю!');
+ 			// alert('В этой борьбе победил '+secondPlayer+'. Поздравляю!');
+ 			swal('Победа!','В этой борьбе победил '+secondPlayer+'! Поздравляю!','success');
  		}else{
   			if (allElementsInMainBlock[0].innerHTML!=0 && allElementsInMainBlock[1].innerHTML!=0 && allElementsInMainBlock[2].innerHTML!=0 && 
  			    allElementsInMainBlock[3].innerHTML!=0 && allElementsInMainBlock[4].innerHTML!=0 && allElementsInMainBlock[5].innerHTML!=0 &&
  				allElementsInMainBlock[6].innerHTML!=0 && allElementsInMainBlock[7].innerHTML!=0 && allElementsInMainBlock[8].innerHTML!=0){
-  				alert('Ничья!');
+  				swal('Ничья!',firstPlayer+' и '+secondPlayer+', вы сыграли в ничью, неплохо','warning');
   			}
   		}
 
