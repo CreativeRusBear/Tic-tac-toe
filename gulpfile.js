@@ -11,7 +11,7 @@ var gulp         = require('gulp'),
 
 
 var toDelete = [
-    'dist',
+    'dist'
 ]
 var jsFiles = [
     // 'src/js/oneplayer.js',
@@ -33,7 +33,7 @@ var buildJs =[
     'src/js/menu.min.js'
 ]
 var buildHtml = [
-    'src/pages/**/*',
+    'src/pages/**/*'
 ]
 var buildAudio = [
     'src/audio/**/*'
