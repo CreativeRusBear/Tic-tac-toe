@@ -1,4 +1,12 @@
 <h1>Крестики-нолики</h1>
+<p>
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/CreativeRusBear/Tic-tac-toe.svg">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/CreativeRusBear/Tic-tac-toe.svg">
+  <img src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/CreativeRusBear/Tic-tac-toe.svg">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg">
+  <img src="https://img.shields.io/badge/version-v1.2.0-blue.svg">
+</p>
 <h3>Описание</h3>
 <p>Крестики-нолики — логическая игра между двумя противниками на квадратном поле 3 на 3 клетки. Один из игроков играет «крестиками», второй — «ноликами». Игроки по очереди ставят на свободные клетки поля 3х3 знаки (один всегда крестики, другой всегда нолики). Первый, выстроивший в ряд 3 своих фигуры по вертикали, горизонтали или диагонали, выигрывает. Первый ход делает игрок, ставящий крестики.</p>
 <p>Игра включает два режима игры:</p>
