@@ -5,8 +5,7 @@
   <img src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/CreativeRusBear/Tic-tac-toe.svg">
   <a href="https://github.com/CreativeRusBear/Tic-tac-toe/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-green.svg">
-  </a>
+    <img src="https://img.shields.io/badge/license-MIT-green.svg"></a>
   <img src="https://img.shields.io/badge/version-v1.2.0-blue.svg">
 </p>
 <h3>Описание</h3>
